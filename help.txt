@@ -1,0 +1,17 @@
+INSTALL:
+1. download Caps and put it in your project directory and after
+2. you could integrate using the gcc compiler ( gcc <your-files> libCaps_madlib.a )
+3. or target_link_libraries(<your-target> ${CMAKE_CURRENT_SOURCE_DIR}/libCaps_madlib.a)
+4. import Caps.h from a source file whenever you need it
+
+BASIC USAGE:
+1. TCP flags are in hex --> set_TCP_flags(packet, 0x04);
+2. sending packets(you put destination ip and port when making the packet) --> rawsocket_send(packet);
+3. sending tons of packets --> 
+  <------------------------------------------------------>
+  packet_t packet = build_standard_packet(...)
+while(1){
+    rawsocket_send(packet);
+}
+<--------------------------------------------------------->
+4. sniffing packets --> packet_t packet = rawsocket_sniff();
